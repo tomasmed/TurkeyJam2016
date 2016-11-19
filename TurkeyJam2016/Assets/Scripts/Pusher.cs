@@ -8,6 +8,8 @@ public class Pusher : MonoBehaviour {
     public float lifetime = 5f;
     public float intensity = 3f;
 
+    public GameObject textureHolder;
+
     public int bombdirection = 0;
 
     public Material vola;
