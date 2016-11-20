@@ -5,6 +5,7 @@ using System.Collections;
 public class ReloadGame : MonoBehaviour {
 
     public KeyCode restart;
+    public string scene = "Scene0";
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,7 @@ public class ReloadGame : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(restart))
         {
-            SceneManager.LoadScene("Scene0", LoadSceneMode.Single);
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
         }
 	}
 }

@@ -33,7 +33,7 @@ public class BombManager : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && (maxbombs > 0) )
+        if (Input.GetButtonDown("Y") && (maxbombs > 0) )
         {
             objectivepos = this.gameObject.transform.position + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
@@ -43,7 +43,7 @@ public class BombManager : MonoBehaviour {
             uibombs.text = "Bombs Left: " + maxbombs;
 
         }
-        if (Input.GetKeyDown(KeyCode.K) && (maxbombs > 0) )
+        if (Input.GetButtonDown("A") && (maxbombs > 0) )
         {
             objectivepos = this.gameObject.transform.position + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
@@ -54,7 +54,7 @@ public class BombManager : MonoBehaviour {
 
 
         }
-        if (Input.GetKeyDown(KeyCode.J) && (maxbombs > 0))
+        if (Input.GetButtonDown("X") && (maxbombs > 0))
         {
             objectivepos = this.gameObject.transform.position + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
@@ -64,7 +64,7 @@ public class BombManager : MonoBehaviour {
             uibombs.text = "Bombs Left: " + maxbombs;
 
         }
-        if (Input.GetKeyDown(KeyCode.L) && (maxbombs > 0) )
+        if (Input.GetButtonDown("B") && (maxbombs > 0) )
         {
             objectivepos = this.gameObject.transform.position + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);

@@ -13,6 +13,8 @@ public class MovementPlayer2 : MonoBehaviour
     Vector3 vel;
     private RaycastHit hitInfo;
 
+    public bool horiz_axis_in_use = false;
+    private bool vert_axis_in_use = false;
 
     public List<GameObject> BombBelt;
     // Use this for initialization
@@ -36,7 +38,8 @@ public class MovementPlayer2 : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.RightShift)) {
+        if (Input.GetButtonDown("Trigger2"))
+        {
             for (int i = 0; i < BombBelt.Count; i++)
             {
                 BombBelt[i].GetComponent<Pusher>().active = true;
@@ -44,6 +47,87 @@ public class MovementPlayer2 : MonoBehaviour
             }
             BombBelt = new List<GameObject>();
         }
+
+        if (Input.GetAxis("Horizontal2") < -0.8)
+        {
+            if (horiz_axis_in_use == false)
+            {
+                if (!Physics.Raycast(trans.position, Vector3.forward, out hitInfo, 1, 1, QueryTriggerInteraction.Ignore))
+                {
+                    vel = new Vector3(trans.position.x, trans.position.y, trans.position.z + 1);
+                    transform.DOMove(vel, 0.01f);
+                }
+                else if (hitInfo.collider.gameObject.tag != "Wall")
+                {
+                    vel = new Vector3(trans.position.x, trans.position.y, trans.position.z + 1);
+                    transform.DOMove(vel, 0.01f);
+                }
+                horiz_axis_in_use = true;
+            }
+        }
+        if (Input.GetAxis("Horizontal2") > 0.8)
+        {
+            if (horiz_axis_in_use == false)
+            {
+                if (!Physics.Raycast(trans.position, Vector3.back, out hitInfo, 1, 1, QueryTriggerInteraction.Ignore))
+                {
+                    vel = new Vector3(trans.position.x, trans.position.y, trans.position.z - 1);
+                    transform.DOMove(vel, 0.01f);
+                }
+                else if (hitInfo.collider.gameObject.tag != "Wall")
+                {
+                    vel = new Vector3(trans.position.x, trans.position.y, trans.position.z - 1);
+                    transform.DOMove(vel, 0.01f);
+                }
+                horiz_axis_in_use = true;
+            }
+        }
+        if (Input.GetAxis("Horizontal2") > -0.8 && Input.GetAxisRaw("Horizontal2") < 0.8)
+        {
+            horiz_axis_in_use = false;
+        }
+
+
+        if (Input.GetAxis("Vertical2") < -0.8)
+        {
+            if (vert_axis_in_use == false)
+            {
+                if (!Physics.Raycast(trans.position, Vector3.right, out hitInfo, 1, 1, QueryTriggerInteraction.Ignore))
+                {
+                    vel = new Vector3(trans.position.x + 1, trans.position.y, trans.position.z);
+                    transform.DOMove(vel, 0.01f);
+                }
+                else if (hitInfo.collider.gameObject.tag != "Wall")
+                {
+                    vel = new Vector3(trans.position.x + 1, trans.position.y, trans.position.z);
+                    transform.DOMove(vel, 0.01f);
+                }
+                vert_axis_in_use = true;
+            }
+        }
+        if (Input.GetAxis("Vertical2") > 0.8)
+        {
+            if (vert_axis_in_use == false)
+            {
+                if (!Physics.Raycast(trans.position, Vector3.left, out hitInfo, 1, 1, QueryTriggerInteraction.Ignore))
+                {
+                    vel = new Vector3(trans.position.x - 1, trans.position.y, trans.position.z);
+                    transform.DOMove(vel, 0.01f);
+                }
+                else if (hitInfo.collider.gameObject.tag != "Wall")
+                {
+                    vel = new Vector3(trans.position.x - 1, trans.position.y, trans.position.z);
+                    transform.DOMove(vel, 0.01f);
+                }
+                vert_axis_in_use = true;
+            }
+        }
+        if (Input.GetAxis("Vertical2") > -0.8 && Input.GetAxisRaw("Vertical2") < 0.8)
+        {
+            vert_axis_in_use = false;
+        }
+
+
 
 
 
