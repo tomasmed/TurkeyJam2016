@@ -35,7 +35,7 @@ public class BombManager : MonoBehaviour {
 
         if (Input.GetButtonDown("Y") && (maxbombs > 0) )
         {
-            objectivepos = this.gameObject.transform.position + Vector3.back * 12;
+            objectivepos = this.gameObject.transform.position;// + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
             temp = (GameObject) GameObject.Instantiate(pusherN, objectivepos , transform.rotation);
             MovementController.S.BombBelt.Add(temp);
@@ -45,7 +45,7 @@ public class BombManager : MonoBehaviour {
         }
         if (Input.GetButtonDown("A") && (maxbombs > 0) )
         {
-            objectivepos = this.gameObject.transform.position + Vector3.back * 12;
+            objectivepos = this.gameObject.transform.position;// + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
             temp = (GameObject)GameObject.Instantiate(pusherS, objectivepos, transform.rotation);
             MovementController.S.BombBelt.Add(temp);
@@ -56,7 +56,7 @@ public class BombManager : MonoBehaviour {
         }
         if (Input.GetButtonDown("X") && (maxbombs > 0))
         {
-            objectivepos = this.gameObject.transform.position + Vector3.back * 12;
+            objectivepos = this.gameObject.transform.position;// + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
             temp = (GameObject)GameObject.Instantiate(pusherW, objectivepos, transform.rotation);
             MovementController.S.BombBelt.Add(temp);
@@ -66,7 +66,7 @@ public class BombManager : MonoBehaviour {
         }
         if (Input.GetButtonDown("B") && (maxbombs > 0) )
         {
-            objectivepos = this.gameObject.transform.position + Vector3.back * 12;
+            objectivepos = this.gameObject.transform.position;// + Vector3.back * 12;
             //GameObject.Instantiate(pusher,  objectivepos, gameObject.transform.rotation ,gameObject.transform);
             temp = (GameObject)GameObject.Instantiate(pusherE, objectivepos, transform.rotation);
             MovementController.S.BombBelt.Add(temp);
