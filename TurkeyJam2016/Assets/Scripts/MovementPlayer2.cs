@@ -82,7 +82,7 @@ public class MovementPlayer2 : MonoBehaviour
                 horiz_axis_in_use = true;
             }
         }
-        if (Input.GetAxis("Horizontal2") > -0.8 && Input.GetAxisRaw("Horizontal2") < 0.8)
+        if (Input.GetAxis("Horizontal2") > -0.8 && Input.GetAxis("Horizontal2") < 0.8)
         {
             horiz_axis_in_use = false;
         }
@@ -122,7 +122,7 @@ public class MovementPlayer2 : MonoBehaviour
                 vert_axis_in_use = true;
             }
         }
-        if (Input.GetAxis("Vertical2") > -0.8 && Input.GetAxisRaw("Vertical2") < 0.8)
+        if (Input.GetAxis("Vertical2") > -0.8 && Input.GetAxis("Vertical2") < 0.8)
         {
             vert_axis_in_use = false;
         }

@@ -100,7 +100,7 @@ public class MovementController : MonoBehaviour {
                 horiz_axis_in_use = true;
             }
         }
-        if (Input.GetAxis("Horizontal") > -0.8 && Input.GetAxisRaw("Horizontal") < 0.8) 
+        if (Input.GetAxis("Horizontal") > -0.8 && Input.GetAxis("Horizontal") < 0.8) 
         {
             horiz_axis_in_use = false;
         }
@@ -158,7 +158,7 @@ public class MovementController : MonoBehaviour {
 
 
         
-        if (Input.GetAxisRaw("Horizontal") < 0){
+        /*if (Input.GetKeyDown(KeyCode.A)){
             if (!Physics.Raycast(trans.position, Vector3.forward, out hitInfo, 1,1, QueryTriggerInteraction.Ignore))
             {
                     vel = new Vector3(trans.position.x, trans.position.y, trans.position.z + 1);
@@ -169,7 +169,7 @@ public class MovementController : MonoBehaviour {
                 vel = new Vector3(trans.position.x, trans.position.y, trans.position.z + 1);
                 transform.DOMove(vel, 0.01f);
             }
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.D)){
             if (!Physics.Raycast(trans.position, Vector3.back, out hitInfo, 1,1, QueryTriggerInteraction.Ignore))
             {

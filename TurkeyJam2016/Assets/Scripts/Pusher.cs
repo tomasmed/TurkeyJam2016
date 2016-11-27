@@ -15,6 +15,8 @@ public class Pusher : MonoBehaviour {
     public Material vola;
     public Material dorm;
 
+    private RaycastHit hitInfo;
+
     // Use this for initialization
     void Start () {
 	
@@ -25,7 +27,18 @@ public class Pusher : MonoBehaviour {
         if (active)
         {
             lifetime -= Time.deltaTime;
-            if (lifetime < 1) Destroy(gameObject);
+            if (lifetime < 1)
+            {
+                Destroy(gameObject);
+                //Vector3 newpos = transform.position + Vctro
+                if (Physics.Raycast((transform.position + Vector3.up), Vector3.down, out hitInfo, 1, 1, QueryTriggerInteraction.Collide))
+                    {
+                        if (hitInfo.collider.gameObject.tag == "Ground_a")
+                        {
+                            Destroy(hitInfo.collider.gameObject);
+                        }
+                    }
+            }
         }
     }
 
